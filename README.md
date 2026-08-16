@@ -32,12 +32,29 @@ Two tracks run in parallel rather than sequentially:
 
 ## Why these specific problems
 
+Going through all 17 HackerRank Python subdomains and keeping only what maps to embedded QA work:
+
+**Included**
+
 | Subdomain | Why it matters for embedded QA |
 |---|---|
 | **Errors and Exceptions** | Maps directly to catching `SerialTimeoutException` / `SerialException` and building retry logic when a board doesn't respond |
 | **Date and Time** | Timestamping log entries, measuring test duration, detecting timeouts |
 | **Collections** | `Counter` for pass/fail tallies, `deque` for modeling a serial read buffer, `OrderedDict` for preserving log sequence while deduplicating |
 | **Regex and Parsing** | The single most directly relevant subdomain — extracting sensor values and structured fields out of raw UART/log text |
+| **Closures and Decorators** | The mechanism behind `@retry` / `@timeout` wrappers — making a flaky serial call resilient without rewriting the call itself |
+| **XML** | Parsing JUnit-style XML test reports and nested config files, a common QA reporting format |
+
+**Deliberately excluded, with reasons**
+
+| Subdomain | Why it's out |
+|---|---|
+| Introduction, Basic Data Types, Built-Ins, Debugging | Too general — no distinct embedded-QA angle beyond what the included subdomains already cover |
+| Strings | Overlaps with Regex and Parsing, which is the sharper, more directly applicable version of the same skill |
+| Sets, Math, Itertools | Marginal relevance — real but not strong enough to prioritize over the six above |
+| Classes | OOP structure belongs to the C++ track (HAL/driver abstraction work), not Python problem practice, per the earlier C vs. C++ purpose split |
+| Python Functionals | map/filter/reduce is useful but redundant with skills already exercised elsewhere |
+| Numpy | Array/signal computation — only relevant if doing waveform/ADC signal analysis, which isn't current scope |
 
 ## Overview
 
@@ -76,6 +93,18 @@ Two tracks run in parallel rather than sequentially:
 | Detect Floating Point Number | ⬜ Not started | TODO — paste once found on HackerRank |
 | Re.split() | ⬜ Not started | TODO — paste once found on HackerRank |
 
+**Closures and Decorators**
+| Problem | Status | Link |
+|---|---|---|
+| Standardize Mobile Number Using Decorators | ⬜ Not started | TODO — paste once found on HackerRank |
+| Decorators 2 - Name Directory | ⬜ Not started | TODO — paste once found on HackerRank |
+
+**XML**
+| Problem | Status | Link |
+|---|---|---|
+| XML 1 - Find the Score | ⬜ Not started | TODO — paste once found on HackerRank |
+| XML 2 - Find the Maximum Depth | ⬜ Not started | TODO — paste once found on HackerRank |
+
 A few links are marked TODO rather than guessed — no fabricated URLs. Paste the real link the first time you open each problem.
 
 ### LeetCode
@@ -90,6 +119,8 @@ hackerrank/
   date-and-time/
   collections/
   regex-and-parsing/
+  closures-and-decorators/
+  xml/
 leetcode/
   (added once populated)
 ```
