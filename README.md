@@ -11,158 +11,201 @@
 
 # Embedded-QA-Python-Practice
 
-**Python problem-solving practice, curated for embedded systems validation and QA automation.** Every problem here is chosen — not just completed — because it builds a skill that shows up when writing PC-side test scripts that talk to embedded hardware over serial: parsing UART/log output, handling communication failures, timing test runs, structuring results.
+**Python problem-solving practice, curated for embedded systems validation and QA automation.** Every problem here supports one goal: writing PC-side test scripts that talk to embedded hardware over serial — parsing UART/log output, handling communication failures, timing test runs, structuring results.
 
 ## Purpose
 
-This is the Python half of a broader problem-solving practice. It's a practice repo, not a tooling repo — the deliverable here is solved problems with notes, not runnable scripts against real hardware. The firmware/embedded-C half of the same overall practice lives in a separate repo: [Embedded-C-Practice](https://github.com/mohamedSamehMS/Embedded-C-Practice).
-
-**What this repo is not:** a general algorithms archive in Python, and not a collection of hardware validation scripts either. Every problem is picked for a specific embedded-QA reason (see below), and problems chosen for general algorithmic fluency belong in the C-focused repo instead.
+This is the Python half of a broader problem-solving practice. It's a practice repo, not a tooling repo. The firmware/embedded-C half lives in [Embedded-C-Practice](https://github.com/mohamedSamehMS/Embedded-C-Practice).
 
 ## Goal
 
-Build enough Python fluency in string/error/collection/set/time handling that writing a `pyserial`-based validation script — reading a serial log from a microcontroller, parsing expected-vs-actual output, flagging a mismatch, retrying on timeout — is a five-minute task rather than a lookup-heavy one, once that script actually needs to be written.
+Build enough Python fluency that writing a `pyserial`-based validation script is a five-minute task, not a lookup-heavy one, once that script actually needs to be written.
 
 ## Learning approach
 
-Two tracks run in parallel rather than sequentially:
-
-- **DataCamp** — structured courses for learning the concept properly first.
-- **HackerRank / LeetCode** — unstructured application, no guardrails.
+Two tracks run in parallel: **DataCamp** for structured concept-learning, **HackerRank / LeetCode** for unstructured application.
 
 ## Subdomain selection — all 17 reviewed
 
-HackerRank's Python domain has 17 subdomains. Each was evaluated specifically against "does this build a skill used in writing embedded driver validation scripts."
+**Included (11) — full problem set for each, 76 problems total**
 
-**Included (11)**
+| Subdomain | Why it matters for embedded QA | Count |
+|---|---|---|
+| Errors and Exceptions | Catching `SerialTimeoutException`/`SerialException`, retry logic | 2 |
+| Date and Time | Timestamping logs, measuring duration, detecting timeouts | 2 |
+| Collections | `Counter`/`deque`/`OrderedDict` for tallying, buffering, ordering | 8 |
+| Regex and Parsing | Extracting values from raw UART/log text | 17 |
+| Closures and Decorators | `@retry`/`@timeout` wrapper mechanism | 2 |
+| XML | JUnit-style test report parsing | 2 |
+| Strings | Splitting/validating/formatting raw log fields | 14 |
+| Sets | Comparing expected vs actual configuration | 13 |
+| Itertools | Test-matrix generation, log compression | 7 |
+| Built-Ins | Aggregate pass/fail checks, pairing expected/actual, sorting | 6 |
+| Python Functionals | Transforming and aggregating result lists | 3 |
 
-| Subdomain | Why it matters for embedded QA |
-|---|---|
-| **Errors and Exceptions** | Catching `SerialTimeoutException` / `SerialException`, retry logic when a board doesn't respond |
-| **Date and Time** | Timestamping log entries, measuring test duration, detecting timeouts |
-| **Collections** | `Counter` for pass/fail tallies, `deque` for a serial read buffer, `OrderedDict` for log sequencing |
-| **Regex and Parsing** | Extracting sensor values and structured fields out of raw UART/log text — the single most relevant subdomain |
-| **Closures and Decorators** | The mechanism behind `@retry` / `@timeout` wrappers around a flaky serial call |
-| **XML** | Parsing JUnit-style test reports and nested config files |
-| **Strings** | Splitting raw log lines into fields, validating field formats, formatting readable console reports |
-| **Sets** | Comparing expected vs actual configuration — e.g. verifying every expected interrupt/pin is actually enabled |
-| **Itertools** | Generating exhaustive test-parameter combinations; compressing repeated consecutive log lines |
-| **Built-Ins** | `any`/`all` for aggregate pass/fail checks, `zip` for pairing expected-vs-actual lists, custom sort for ordering results |
-| **Python Functionals** | `map`/`filter`/`reduce` for transforming and aggregating lists of test results |
-
-**Excluded (6), with reasons**
+**Excluded (6)**
 
 | Subdomain | Why it's out |
 |---|---|
-| Introduction, Basic Data Types | Too general — no distinct embedded-QA angle beyond what's already covered |
-| Math | Geometry/triangle-focused problems, no meaningful tie to driver validation |
-| Classes | HackerRank's 2 problems are generic math OOP (complex numbers, torsional angle), not test-framework design |
-| Numpy | Array/signal computation — only relevant for statistical ADC/waveform analysis, which isn't current scope |
-| Debugging | Thin (2 problems), format is spot-the-bug in unrelated snippets — real debugging is already being practiced more meaningfully through live QA cycles and actual firmware bug-hunting (e.g. the NVIC priority bug already found and fixed) |
+| Introduction, Basic Data Types | Too general, no distinct embedded-QA angle |
+| Math | Geometry-focused, no meaningful tie |
+| Classes | The 2 problems are generic math OOP, not test-framework design |
+| Numpy | Only relevant for statistical ADC/signal analysis — not current scope |
+| Debugging | Thin (2 problems), spot-the-bug format — real debugging already practiced through live QA/firmware work |
 
 ## Link verification note
 
-Problem names below are all confirmed real HackerRank Python challenges, cross-checked across multiple sources. Exact URLs are only included where independently verified against HackerRank directly — everything else is marked TODO rather than guessed, consistent with this repo's no-fabricated-links policy. Paste the real link in the first time you open each problem; that's the fastest way to close these out as you actually reach them.
+Every problem name below is a confirmed real HackerRank challenge. Exact URLs are included only where independently verified — the rest are marked TODO rather than guessed, so nothing here is a dead or wrong link. Paste the real link in as you open each problem.
 
 ## Progress — HackerRank Python
 
-**Errors and Exceptions**
+### Errors and Exceptions
 | Problem | Status | Link |
 |---|---|---|
-| Exceptions | ⬜ Not started | TODO |
-| Incorrect Regex | ⬜ Not started | [problem](https://www.hackerrank.com/challenges/incorrect-regex/problem) |
+| Exceptions | ⬜ | TODO |
+| Incorrect Regex | ⬜ | [problem](https://www.hackerrank.com/challenges/incorrect-regex/problem) |
 
-**Date and Time**
+### Date and Time
 | Problem | Status | Link |
 |---|---|---|
-| Calendar Module | ⬜ Not started | TODO |
-| Time Delta | ⬜ Not started | [problem](https://www.hackerrank.com/challenges/python-time-delta/problem) |
+| Calendar Module | ⬜ | TODO |
+| Time Delta | ⬜ | [problem](https://www.hackerrank.com/challenges/python-time-delta/problem) |
 
-**Collections**
+### Collections
 | Problem | Status | Link |
 |---|---|---|
-| collections.OrderedDict() | ⬜ Not started | [problem](https://www.hackerrank.com/challenges/py-collections-ordereddict/problem) |
-| collections.Counter() | ⬜ Not started | TODO |
-| collections.deque() | ⬜ Not started | TODO |
+| collections.Counter() | ⬜ | TODO |
+| DefaultDict Tutorial | ⬜ | TODO |
+| Collections.namedtuple() | ⬜ | TODO |
+| Collections.OrderedDict() | ⬜ | [problem](https://www.hackerrank.com/challenges/py-collections-ordereddict/problem) |
+| Word Order | ⬜ | TODO |
+| Collections.deque() | ⬜ | TODO |
+| Company Logo | ⬜ | TODO |
+| Piling Up! | ⬜ | TODO |
 
-**Regex and Parsing**
+### Regex and Parsing
 | Problem | Status | Link |
 |---|---|---|
-| Detect Floating Point Number | ⬜ Not started | TODO |
-| Re.split() | ⬜ Not started | TODO |
+| Detect Floating Point Number | ⬜ | TODO |
+| Re.split() | ⬜ | TODO |
+| Group(), Groups() & Groupdict() | ⬜ | TODO |
+| Re.findall() & Re.finditer() | ⬜ | TODO |
+| Re.start() & Re.end() | ⬜ | TODO |
+| Regex Substitution | ⬜ | TODO |
+| Validating Roman Numerals | ⬜ | TODO |
+| Validating phone numbers | ⬜ | TODO |
+| Validating and Parsing Email Addresses | ⬜ | TODO |
+| Hex Color Code | ⬜ | TODO |
+| HTML Parser - Part 1 | ⬜ | TODO |
+| HTML Parser - Part 2 | ⬜ | TODO |
+| Detect HTML Tags, Attributes and Attribute Values | ⬜ | TODO |
+| Validating UID | ⬜ | TODO |
+| Validating Credit Card Numbers | ⬜ | TODO |
+| Validating Postal Codes | ⬜ | TODO |
+| Matrix Script | ⬜ | TODO |
 
-**Closures and Decorators**
+### Closures and Decorators
 | Problem | Status | Link |
 |---|---|---|
-| Standardize Mobile Number Using Decorators | ⬜ Not started | TODO |
-| Decorators 2 - Name Directory | ⬜ Not started | TODO |
+| Standardize Mobile Number Using Decorators | ⬜ | TODO |
+| Decorators 2 - Name Directory | ⬜ | TODO |
 
-**XML**
+### XML
 | Problem | Status | Link |
 |---|---|---|
-| XML 1 - Find the Score | ⬜ Not started | TODO |
-| XML 2 - Find the Maximum Depth | ⬜ Not started | TODO |
+| XML 1 - Find the Score | ⬜ | TODO |
+| XML 2 - Find the Maximum Depth | ⬜ | TODO |
 
-**Strings**
+### Strings
 | Problem | Status | Link |
 |---|---|---|
-| String Split and Join | ⬜ Not started | TODO |
-| String Validators | ⬜ Not started | TODO |
-| Text Alignment | ⬜ Not started | TODO |
+| sWAP cASE | ⬜ | TODO |
+| String Split and Join | ⬜ | TODO |
+| What's Your Name? | ⬜ | TODO |
+| Mutations | ⬜ | TODO |
+| Find a string | ⬜ | TODO |
+| String Validators | ⬜ | TODO |
+| Text Alignment | ⬜ | TODO |
+| Text Wrap | ⬜ | TODO |
+| Designer Door Mat | ⬜ | TODO |
+| Merge the Tools! | ⬜ | TODO |
+| String Formatting | ⬜ | TODO |
+| Alphabet Rangoli | ⬜ | TODO |
+| Capitalize! | ⬜ | TODO |
+| The Minion Game | ⬜ | TODO |
 
-**Sets**
+### Sets
 | Problem | Status | Link |
 |---|---|---|
-| Symmetric Difference | ⬜ Not started | TODO |
-| Check Subset | ⬜ Not started | TODO |
-| Check Strict Superset | ⬜ Not started | TODO |
+| Introduction to Sets | ⬜ | TODO |
+| Symmetric Difference | ⬜ | TODO |
+| Set .add() | ⬜ | TODO |
+| Set .union() Operation | ⬜ | TODO |
+| Set .intersection() Operation | ⬜ | TODO |
+| Set .difference() Operation | ⬜ | TODO |
+| Set .symmetric_difference() Operation | ⬜ | TODO |
+| Set Mutations | ⬜ | TODO |
+| The Captain's Room | ⬜ | TODO |
+| Check Subset | ⬜ | TODO |
+| Check Strict Superset | ⬜ | TODO |
+| Set .discard(), .remove() & .pop() | ⬜ | TODO |
+| No Idea! | ⬜ | TODO |
 
-**Itertools**
+### Itertools
 | Problem | Status | Link |
 |---|---|---|
-| itertools.product() | ⬜ Not started | [problem](https://www.hackerrank.com/challenges/itertools-product/problem) |
-| itertools.combinations() | ⬜ Not started | TODO |
-| Compress the String! | ⬜ Not started | TODO |
+| itertools.product() | ⬜ | [problem](https://www.hackerrank.com/challenges/itertools-product/problem) |
+| itertools.permutations() | ⬜ | TODO |
+| itertools.combinations() | ⬜ | TODO |
+| itertools.combinations_with_replacement() | ⬜ | TODO |
+| Compress the String! | ⬜ | TODO |
+| Iterables and Iterators | ⬜ | TODO |
+| Maximize It! | ⬜ | TODO |
 
-**Built-Ins**
+### Built-Ins
 | Problem | Status | Link |
 |---|---|---|
-| Any or All | ⬜ Not started | TODO |
-| Zipped! | ⬜ Not started | TODO |
-| Athlete Sort | ⬜ Not started | TODO |
+| Zipped! | ⬜ | TODO |
+| Input() | ⬜ | TODO |
+| Python Evaluation | ⬜ | TODO |
+| Any or All | ⬜ | TODO |
+| Athlete Sort | ⬜ | TODO |
+| ginortS | ⬜ | TODO |
 
-**Python Functionals**
+### Python Functionals
 | Problem | Status | Link |
 |---|---|---|
-| Map and Lambda Function | ⬜ Not started | TODO |
-| Reduce Function | ⬜ Not started | TODO |
+| Map and Lambda Function | ⬜ | TODO |
+| Validating Email Addresses With a Filter | ⬜ | TODO |
+| Reduce Function | ⬜ | TODO |
+
+**5 of 76 links independently verified so far** — the rest read TODO by design, not by omission.
 
 ### LeetCode
 
-Not started — see [leetcode/README.md](leetcode/README.md) for planned structure.
+Not started — see [leetcode/README.md](leetcode/README.md).
 
 ## Repository layout
 
 ```
 hackerrank/
-  errors-and-exceptions/
-  date-and-time/
-  collections/
-  regex-and-parsing/
-  closures-and-decorators/
-  xml/
-  strings/
-  sets/
-  itertools/
-  built-ins/
-  python-functionals/
+  errors-and-exceptions/   (2)
+  date-and-time/           (2)
+  collections/             (8)
+  regex-and-parsing/       (17)
+  closures-and-decorators/ (2)
+  xml/                     (2)
+  strings/                 (14)
+  sets/                    (13)
+  itertools/               (7)
+  built-ins/               (6)
+  python-functionals/      (3)
 leetcode/
   (added once populated)
 ```
 
 ## File convention
 
-Every Python solution file starts with a header block that includes *why* the problem was chosen:
 ```python
 """
 Problem   : <name>
