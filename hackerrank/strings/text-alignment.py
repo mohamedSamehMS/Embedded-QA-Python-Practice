@@ -1,9 +1,9 @@
 """
-Problem   : Detect Floating Point Number
-Subdomain : HackerRank Python > Regex And Parsing
+Problem   : Text Alignment
+Subdomain : HackerRank Python > Strings
 Link      : TODO: paste link once found on HackerRank
 
-Why this one: Validating numeric formats — directly relevant to parsing sensor readings out of raw UART text.
+Why this one: Formatting aligned columns of output — directly useful for writing readable console test reports.
 
 Notes:
 - Approach:

@@ -1,9 +1,9 @@
 """
-Problem   : XML 1 - Find the Score
-Subdomain : HackerRank Python > Xml
+Problem   : Reduce Function
+Subdomain : HackerRank Python > Python Functionals
 Link      : TODO: paste link once found on HackerRank
 
-Why this one: Walking an XML tree and extracting values — directly applicable to reading JUnit-style XML test reports, a common QA reporting format.
+Why this one: Aggregating a list down to a single value — e.g. computing an overall pass rate from a list of individual test results.
 
 Notes:
 - Approach:

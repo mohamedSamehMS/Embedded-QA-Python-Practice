@@ -1,9 +1,9 @@
 """
-Problem   : collections.Counter()
-Subdomain : HackerRank Python > Collections
+Problem   : Any or All
+Subdomain : HackerRank Python > Built Ins
 Link      : TODO: paste link once found on HackerRank
 
-Why this one: Tallying occurrences — the direct tool for counting pass/fail results or error-code frequency across a test run.
+Why this one: The direct tool for 'did ALL test cases pass' / 'did ANY reading go out of range' aggregate checks.
 
 Notes:
 - Approach:

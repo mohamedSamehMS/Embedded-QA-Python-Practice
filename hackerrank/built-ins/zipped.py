@@ -1,9 +1,9 @@
 """
-Problem   : Re.split()
-Subdomain : HackerRank Python > Regex And Parsing
+Problem   : Zipped!
+Subdomain : HackerRank Python > Built Ins
 Link      : TODO: paste link once found on HackerRank
 
-Why this one: Splitting on multiple delimiters — the core operation for breaking a raw log line into fields.
+Why this one: Pairing two lists element-wise — exactly how you'd compare an expected-values list against an actual-values list.
 
 Notes:
 - Approach:

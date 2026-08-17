@@ -1,9 +1,9 @@
 """
-Problem   : Calendar Module
-Subdomain : HackerRank Python > Date And Time
+Problem   : Check Strict Superset
+Subdomain : HackerRank Python > Sets
 Link      : TODO: paste link once found on HackerRank
 
-Why this one: Date arithmetic — relevant for scheduling recurring test runs or reading calendar-stamped log entries.
+Why this one: The inverse check — verifying nothing unexpected got configured beyond what was intended.
 
 Notes:
 - Approach:

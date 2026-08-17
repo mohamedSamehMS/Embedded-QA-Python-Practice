@@ -1,9 +1,9 @@
 """
-Problem   : XML 2 - Find the Maximum Depth
-Subdomain : HackerRank Python > Xml
+Problem   : Map and Lambda Function
+Subdomain : HackerRank Python > Python Functionals
 Link      : TODO: paste link once found on HackerRank
 
-Why this one: Recursively traversing nested XML — same skill needed to parse a deeply nested test-suite report or config file.
+Why this one: Transforming a list of raw values into parsed values in one pass — e.g. converting a list of raw UART strings into ints.
 
 Notes:
 - Approach:
