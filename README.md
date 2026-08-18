@@ -116,6 +116,12 @@ Problem links are kept as verified links where available. A `TODO` means the lin
 
 Do not guess a URL just to remove a `TODO`.
 
+# Accuracy note
+
+An earlier version of this restructuring had a real bug: files intended for `hackerrank/optional/` were copied there without being removed from the core folders, so several core folders still held their full pre-trim problem count. A few files also ended up in the wrong bucket entirely — Text Alignment, Text Wrap, Set .symmetric_difference() Operation, Compress the String!, Python Evaluation, and Validating Email Addresses With a Filter were all listed as core in this README but were physically sitting in `optional/` instead. `Classes` and `Debugging` were also listed as populated "small areas" while their folders were actually empty.
+
+All of that has been corrected: every core folder's file count now matches this README exactly (verified programmatically, not by eye), every optional file lives in exactly one place, and Classes/Debugging both have their 2 real problems in place.
+
 ---
 
 # Progress — HackerRank Python
@@ -254,6 +260,26 @@ The most important field is **Why this one**. It keeps the problem connected to 
 
 ---
 
+# Small areas
+
+Kept deliberately small — see "Small additional areas" above for why these two don't get a full problem set.
+
+## Classes
+
+| Problem | Status | Link |
+|---|---|---|
+| Classes: Dealing with Complex Numbers | ⬜ | TODO |
+| Class 2 - Find the Torsional Angle | ⬜ | TODO |
+
+## Debugging
+
+| Problem | Status | Link |
+|---|---|---|
+| Words Score | ⬜ | TODO |
+| Default Arguments | ⬜ | TODO |
+
+---
+
 # LeetCode
 
 Not started yet.
@@ -279,13 +305,22 @@ hackerrank/
   itertools/               (5 core)
   built-ins/               (4 core)
   python-functionals/      (2 core)
-  classes/                 (small area)
-  debugging/               (small area)
-  optional/                (lower-priority original problems)
+  classes/                 (2 problems, small area)
+  debugging/               (2 problems, small area)
+  optional/                (28 problems — moved out of core, not deleted)
+    built-ins/             (2)
+    collections/           (2)
+    itertools/             (2)
+    python-functionals/    (1)
+    regex-and-parsing/     (10)
+    sets/                  (5)
+    strings/               (6)
 
 leetcode/
   README.md
 ```
+
+**Total: 48 core + 4 small-area + 28 optional = 80 problems**, every file accounted for exactly once.
 
 ## Scope
 
